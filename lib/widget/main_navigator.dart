@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shake_and_eat/model/user.dart';
 import 'shake/shake.dart';
 import 'reward/reward.dart';
 import 'misc/misc.dart';
@@ -36,10 +38,16 @@ class _MainNavigatorState extends State<MainNavigator> {
     return Scaffold(
       appBar: AppBar(
         actions: <Widget>[
-          TextButton(
-            style: style,
-            onPressed: () {},
-            child: const Text("123456"),
+          Consumer<User>(
+            builder: (BuildContext context, user, Widget? child) {
+              return TextButton(
+                style: style,
+                onPressed: () {},
+                child: Text(
+                  "Your points: ${user.points}",
+                ),
+              );
+            },
           )
         ],
       ),

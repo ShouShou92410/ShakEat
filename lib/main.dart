@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shake_and_eat/model/user.dart';
 import 'widget/main_navigator.dart';
 
 void main() {
@@ -26,7 +28,10 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MainNavigator(),
+      home: ChangeNotifierProvider(
+        create: (context) => User(),
+        child: const MainNavigator(),
+      ),
     );
   }
 }
