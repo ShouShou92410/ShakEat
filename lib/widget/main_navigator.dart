@@ -13,7 +13,7 @@ class MainNavigator extends StatefulWidget {
 }
 
 class _MainNavigatorState extends State<MainNavigator> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
   // static const TextStyle optionStyle =
   //     TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
@@ -37,6 +37,8 @@ class _MainNavigatorState extends State<MainNavigator> {
 
     return Scaffold(
       appBar: AppBar(
+        title: const Text("Shake and Eat"),
+        centerTitle: true,
         actions: <Widget>[
           Consumer<User>(
             builder: (BuildContext context, user, Widget? child) {
