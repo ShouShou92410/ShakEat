@@ -17,15 +17,20 @@ class _ShopTabState extends State<ShopTab> {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      // Create a grid with 2 columns. If you change the scrollDirection to
-      // horizontal, this produces 2 rows.
-      crossAxisCount: 2,
-      // children: _items.map((e) => Center(child: Text(e))).toList(),
-      // Generate 100 widgets that display their index in the List.
-      children: List.generate(100, (index) {
-        return const RewardItem();
-      }),
+    return Padding(
+      padding: const EdgeInsets.all(8),
+      child: GridView.count(
+        mainAxisSpacing: 5,
+        crossAxisSpacing: 5,
+        // Create a grid with 2 columns. If you change the scrollDirection to
+        // horizontal, this produces 2 rows.
+        crossAxisCount: 2,
+        // children: _items.map((e) => Center(child: Text(e))).toList(),
+        // Generate 100 widgets that display their index in the List.
+        children: List.generate(100, (index) {
+          return const RewardItem();
+        }),
+      ),
     );
   }
 }
