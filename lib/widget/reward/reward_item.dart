@@ -11,7 +11,7 @@ class _RewardItemState extends State<RewardItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
+      height: 200,
       child: Card(
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -19,6 +19,7 @@ class _RewardItemState extends State<RewardItem> {
         child: Stack(
           children: <Widget>[
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Container(
@@ -37,23 +38,41 @@ class _RewardItemState extends State<RewardItem> {
                 ),
                 Expanded(
                   child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+                    padding: const EdgeInsets.all(15),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Item name',
-                          style: Theme.of(context).textTheme.headline5,
+                          '3000 points',
+                          style: Theme.of(context).textTheme.headline4,
                         ),
-                        Text(
-                          'Location name',
-                          style: Theme.of(context).textTheme.caption,
+                        Column(
+                          children: [
+                            Text(
+                              'Item name',
+                              style: Theme.of(context).textTheme.headline5,
+                            ),
+                            Text(
+                              'Location name',
+                              style: Theme.of(context).textTheme.subtitle2,
+                            ),
+                            Text(
+                              'Address',
+                              style: Theme.of(context).textTheme.caption,
+                            ),
+                          ],
                         ),
-                        Text(
-                          '3000',
-                          style: Theme.of(context).textTheme.headline6,
-                        ),
+                        Divider(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              'Expires on:',
+                              style: Theme.of(context).textTheme.caption,
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ),
