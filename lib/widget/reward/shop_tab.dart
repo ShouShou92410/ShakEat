@@ -18,19 +18,27 @@ class _ShopTabState extends State<ShopTab> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8),
-      child: GridView.count(
-        mainAxisSpacing: 5,
-        crossAxisSpacing: 5,
-        // Create a grid with 2 columns. If you change the scrollDirection to
-        // horizontal, this produces 2 rows.
-        crossAxisCount: 2,
-        // children: _items.map((e) => Center(child: Text(e))).toList(),
-        // Generate 100 widgets that display their index in the List.
-        children: List.generate(100, (index) {
-          return const RewardItem();
-        }),
+      padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
+      child: ListView.separated(
+        itemCount: 10,
+        itemBuilder: (BuildContext context, int index) => const RewardItem(),
+        separatorBuilder: (BuildContext context, int index) => const SizedBox(
+          height: 10,
+        ),
       ),
+      // child: GridView.count(
+      //   childAspectRatio: 1,
+      //   mainAxisSpacing: 20,
+      //   crossAxisSpacing: 20,
+      //   // Create a grid with 2 columns. If you change the scrollDirection to
+      //   // horizontal, this produces 2 rows.
+      //   crossAxisCount: 2,
+      //   // children: _items.map((e) => Center(child: Text(e))).toList(),
+      //   // Generate 100 widgets that display their index in the List.
+      //   children: List.generate(100, (index) {
+      //     return const RewardItem();
+      //   }),
+      // ),
     );
   }
 }
