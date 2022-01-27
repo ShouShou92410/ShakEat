@@ -45,17 +45,17 @@ class _RewardItemState extends State<RewardItem> {
                       children: [
                         Text(
                           '3000 points',
-                          style: Theme.of(context).textTheme.headline4,
+                          style: Theme.of(context).textTheme.headline5,
                         ),
                         Column(
                           children: [
                             Text(
                               'Item name',
-                              style: Theme.of(context).textTheme.headline5,
+                              style: Theme.of(context).textTheme.headline6,
                             ),
                             Text(
                               'Location name',
-                              style: Theme.of(context).textTheme.subtitle2,
+                              style: Theme.of(context).textTheme.bodyText2,
                             ),
                             Text(
                               'Address',

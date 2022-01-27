@@ -46,7 +46,7 @@ class _MainNavigatorState extends State<MainNavigator> {
                 style: style,
                 onPressed: () {},
                 child: Text(
-                  "Your points: ${user.points}",
+                  "Points: ${user.points}",
                 ),
               );
             },
