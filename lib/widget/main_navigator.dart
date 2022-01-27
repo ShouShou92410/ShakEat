@@ -37,6 +37,8 @@ class _MainNavigatorState extends State<MainNavigator> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
         title: const Text("Shake and Eat"),
         centerTitle: true,
         actions: <Widget>[
