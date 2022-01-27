@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class RewardItem extends StatefulWidget {
-  const RewardItem({Key? key}) : super(key: key);
+class RewardShopItem extends StatefulWidget {
+  const RewardShopItem({Key? key}) : super(key: key);
 
   @override
-  _RewardItemState createState() => _RewardItemState();
+  _RewardShopItemtate createState() => _RewardShopItemtate();
 }
 
-class _RewardItemState extends State<RewardItem> {
+class _RewardShopItemtate extends State<RewardShopItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -45,17 +45,17 @@ class _RewardItemState extends State<RewardItem> {
                       children: [
                         Text(
                           '3000 points',
-                          style: Theme.of(context).textTheme.headline4,
+                          style: Theme.of(context).textTheme.headline5,
                         ),
                         Column(
                           children: [
                             Text(
                               'Item name',
-                              style: Theme.of(context).textTheme.headline5,
+                              style: Theme.of(context).textTheme.headline6,
                             ),
                             Text(
                               'Location name',
-                              style: Theme.of(context).textTheme.subtitle2,
+                              style: Theme.of(context).textTheme.bodyText2,
                             ),
                             Text(
                               'Address',

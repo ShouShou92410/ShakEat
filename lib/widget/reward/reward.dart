@@ -21,11 +21,9 @@ class _RewardState extends State<Reward> {
       // initialIndex: 1,
       length: rewardTabs.length,
       child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight),
-          child: TabBar(
-            unselectedLabelColor: Colors.grey,
-            labelColor: Colors.blue,
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: TabBar(
             tabs: rewardTabs,
           ),
         ),
