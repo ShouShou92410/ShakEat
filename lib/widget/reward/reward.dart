@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shake_and_eat/model/user.dart';
 import 'package:shake_and_eat/widget/reward/inventory_tab.dart';
 import 'package:shake_and_eat/widget/reward/shop_tab.dart';
 
@@ -16,6 +18,8 @@ class _RewardState extends State<Reward> {
       const Tab(text: 'SHOP'),
       const Tab(text: 'INVENTORY'),
     ];
+    final ButtonStyle style =
+        TextButton.styleFrom(primary: Theme.of(context).colorScheme.onPrimary);
 
     return DefaultTabController(
       // initialIndex: 1,
@@ -23,7 +27,22 @@ class _RewardState extends State<Reward> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: TabBar(
+          title: const Text("Shake and Eat"),
+          centerTitle: true,
+          actions: <Widget>[
+            Consumer<User>(
+              builder: (BuildContext context, user, Widget? child) {
+                return TextButton(
+                  style: style,
+                  onPressed: () {},
+                  child: Text(
+                    "Points: ${user.points}",
+                  ),
+                );
+              },
+            )
+          ],
+          bottom: TabBar(
             tabs: rewardTabs,
           ),
         ),
