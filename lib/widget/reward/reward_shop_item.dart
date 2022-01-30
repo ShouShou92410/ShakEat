@@ -4,10 +4,10 @@ class RewardShopItem extends StatefulWidget {
   const RewardShopItem({Key? key}) : super(key: key);
 
   @override
-  _RewardShopItemtate createState() => _RewardShopItemtate();
+  _RewardShopItemState createState() => _RewardShopItemState();
 }
 
-class _RewardShopItemtate extends State<RewardShopItem> {
+class _RewardShopItemState extends State<RewardShopItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -84,7 +84,12 @@ class _RewardShopItemtate extends State<RewardShopItem> {
                 color: Colors.transparent,
                 child: InkWell(
                   splashColor: Colors.blue.withAlpha(30),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      new MyCustomRoute(builder: (context) => new SecondPage()),
+                    );
+                  },
                 ),
               ),
             ),
