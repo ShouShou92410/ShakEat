@@ -67,7 +67,7 @@ class _ShopItemState extends State<ShopItem> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
-                              'Expires on:',
+                              'Expire on: 2022/01/01',
                               style: Theme.of(context).textTheme.caption,
                             ),
                           ],
