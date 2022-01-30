@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:shake_and_eat/widget/reward/shop_item_detail.dart';
 
-class RewardShopItem extends StatefulWidget {
-  const RewardShopItem({Key? key}) : super(key: key);
+class ShopItem extends StatefulWidget {
+  const ShopItem({Key? key}) : super(key: key);
 
   @override
-  _RewardShopItemtate createState() => _RewardShopItemtate();
+  _ShopItemState createState() => _ShopItemState();
 }
 
-class _RewardShopItemtate extends State<RewardShopItem> {
+class _ShopItemState extends State<ShopItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,12 +27,10 @@ class _RewardShopItemtate extends State<RewardShopItem> {
                   padding: const EdgeInsets.all(5),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
-                    child: AspectRatio(
-                      aspectRatio: 1,
-                      child: Image(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                            "https://scontent.fyyc4-1.fna.fbcdn.net/v/t39.30808-6/244137766_407368564286911_8833076291010170402_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=730e14&_nc_ohc=np_AKR2TEK0AX_CEBKY&_nc_ht=scontent.fyyc4-1.fna&oh=00_AT89RJyTZr-q5WGfP_GMhKLD--ZTXUAljwz1yAYpm_SmIw&oe=61F37CEE"),
+                    child: Image(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                        "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-1040464_11-6d03a3e.jpg",
                       ),
                     ),
                   ),
@@ -84,7 +83,12 @@ class _RewardShopItemtate extends State<RewardShopItem> {
                 color: Colors.transparent,
                 child: InkWell(
                   splashColor: Colors.blue.withAlpha(30),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ShopItemDetail()),
+                    );
+                  },
                 ),
               ),
             ),
