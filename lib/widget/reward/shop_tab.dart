@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shake_and_eat/widget/reward/reward_shop_item.dart';
+import 'package:shake_and_eat/widget/reward/shop_item.dart';
 
 class ShopTab extends StatefulWidget {
   const ShopTab({Key? key}) : super(key: key);
@@ -21,8 +21,7 @@ class _ShopTabState extends State<ShopTab> {
       padding: const EdgeInsets.only(left: 10, right: 10),
       child: ListView.separated(
         itemCount: 10,
-        itemBuilder: (BuildContext context, int index) =>
-            const RewardShopItem(),
+        itemBuilder: (BuildContext context, int index) => const ShopItem(),
         separatorBuilder: (BuildContext context, int index) => const SizedBox(
           height: 10,
         ),

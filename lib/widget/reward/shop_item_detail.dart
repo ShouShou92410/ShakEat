@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class RewardShopItemDetail extends StatefulWidget {
-  const RewardShopItemDetail({Key? key}) : super(key: key);
+class ShopItemDetail extends StatefulWidget {
+  const ShopItemDetail({Key? key}) : super(key: key);
 
   @override
-  _RewardShopItemDetailState createState() => _RewardShopItemDetailState();
+  _ShopItemDetailState createState() => _ShopItemDetailState();
 }
 
-class _RewardShopItemDetailState extends State<RewardShopItemDetail> {
+class _ShopItemDetailState extends State<ShopItemDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

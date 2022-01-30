@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:shake_and_eat/widget/reward/reward_shop_item_detail.dart';
+import 'package:shake_and_eat/widget/reward/shop_item_detail.dart';
 
-class RewardShopItem extends StatefulWidget {
-  const RewardShopItem({Key? key}) : super(key: key);
+class ShopItem extends StatefulWidget {
+  const ShopItem({Key? key}) : super(key: key);
 
   @override
-  _RewardShopItemState createState() => _RewardShopItemState();
+  _ShopItemState createState() => _ShopItemState();
 }
 
-class _RewardShopItemState extends State<RewardShopItem> {
+class _ShopItemState extends State<ShopItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -86,8 +86,7 @@ class _RewardShopItemState extends State<RewardShopItem> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => RewardShopItemDetail()),
+                      MaterialPageRoute(builder: (context) => ShopItemDetail()),
                     );
                   },
                 ),
