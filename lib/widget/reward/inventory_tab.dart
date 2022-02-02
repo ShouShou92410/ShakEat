@@ -10,6 +10,13 @@ class InventoryTab extends StatefulWidget {
 class _InventoryTabState extends State<InventoryTab> {
   @override
   Widget build(BuildContext context) {
-    return const Text('INVENTORY');
+    return Padding(
+      padding: const EdgeInsets.only(left: 10, right: 10),
+      child: ListView.separated(
+        itemCount: 10,
+        itemBuilder: (BuildContext context, int index) => const Text('item'),
+        separatorBuilder: (BuildContext context, int index) => const Divider(),
+      ),
+    );
   }
 }
