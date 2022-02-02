@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shake_and_eat/widget/reward/inventory_item.dart';
 
 class InventoryTab extends StatefulWidget {
   const InventoryTab({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class _InventoryTabState extends State<InventoryTab> {
       padding: const EdgeInsets.only(left: 10, right: 10),
       child: ListView.separated(
         itemCount: 10,
-        itemBuilder: (BuildContext context, int index) => const Text('item'),
+        itemBuilder: (BuildContext context, int index) => const InventoryItem(),
         separatorBuilder: (BuildContext context, int index) => const Divider(),
       ),
     );
