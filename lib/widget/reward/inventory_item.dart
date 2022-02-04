@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shake_and_eat/widget/reward/inventory_item_detail.dart';
 
 class InventoryItem extends StatefulWidget {
   const InventoryItem({Key? key}) : super(key: key);
@@ -43,6 +44,16 @@ class _InventoryItemState extends State<InventoryItem> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
+                      OutlinedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => InventoryItemDetail()),
+                          );
+                        },
+                        child: Text("Redeem"),
+                      ),
                       Text(
                         'Expire on: 2022/01/01',
                         style: Theme.of(context).textTheme.caption,
