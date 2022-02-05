@@ -35,45 +35,43 @@ class _ShopItemState extends State<ShopItem> {
                     ),
                   ),
                 ),
-                Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.all(15),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '3000 points',
-                          style: Theme.of(context).textTheme.headline5,
-                        ),
-                        Column(
-                          children: [
-                            Text(
-                              'Item name',
-                              style: Theme.of(context).textTheme.headline6,
-                            ),
-                            Text(
-                              'Location name',
-                              style: Theme.of(context).textTheme.bodyText2,
-                            ),
-                            Text(
-                              'Address',
-                              style: Theme.of(context).textTheme.caption,
-                            ),
-                          ],
-                        ),
-                        Divider(),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              'Expire on: 2022/01/01',
-                              style: Theme.of(context).textTheme.caption,
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
+                Container(
+                  padding: const EdgeInsets.all(15),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '3000 points',
+                        style: Theme.of(context).textTheme.headline5,
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            'Item name',
+                            style: Theme.of(context).textTheme.headline6,
+                          ),
+                          Text(
+                            'Location name',
+                            style: Theme.of(context).textTheme.bodyText2,
+                          ),
+                          Text(
+                            'Address',
+                            style: Theme.of(context).textTheme.caption,
+                          ),
+                        ],
+                      ),
+                      Divider(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            'Expire on: 2022/01/01',
+                            style: Theme.of(context).textTheme.caption,
+                          ),
+                        ],
+                      )
+                    ],
                   ),
                 ),
               ],
