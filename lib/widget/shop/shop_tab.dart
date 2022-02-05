@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shake_and_eat/widget/reward/shop_item.dart';
+
+import 'package:shake_and_eat/widget/shop/shop_item.dart';
 
 class ShopTab extends StatefulWidget {
   const ShopTab({Key? key}) : super(key: key);

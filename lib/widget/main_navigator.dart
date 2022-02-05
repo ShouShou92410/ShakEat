@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:shake_and_eat/widget/home/home.dart';
 import 'package:shake_and_eat/widget/shop/shop.dart';
 import 'inventory/inventory.dart';
-import 'shake/shake.dart';
-import 'reward/reward.dart';
 import 'misc/misc.dart';
 
 class MainNavigator extends StatefulWidget {
@@ -38,12 +36,13 @@ class _MainNavigatorState extends State<MainNavigator> {
       body: Center(
         child: _navigationOptions.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: BottomNavigationBar( 
+      bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.shop), label: "Shop"),
-          BottomNavigationBarItem(icon: Icon(Icons.inventory), label: "Inventory"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.inventory), label: "Inventory"),
           BottomNavigationBarItem(icon: Icon(Icons.more_horiz), label: "More"),
         ],
         currentIndex: _selectedIndex,

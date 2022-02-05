@@ -33,7 +33,7 @@ class _ShopItemDetailState extends State<ShopItemDetail> {
               height: 200,
               fit: BoxFit.cover,
               image: NetworkImage(
-                "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-1040464_11-6d03a3e.jpg",
+                "https://images.unsplash.com/photo-1600289031464-74d374b64991?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1075&q=80",
               ),
             ),
           ),

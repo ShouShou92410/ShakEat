@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shake_and_eat/widget/reward/inventory_item_detail.dart';
+
+import 'package:shake_and_eat/widget/inventory/inventory_item_detail.dart';
 
 class InventoryItem extends StatefulWidget {
   const InventoryItem({Key? key}) : super(key: key);
