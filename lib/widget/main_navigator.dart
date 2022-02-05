@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shake_and_eat/widget/home/home.dart';
+import 'package:shake_and_eat/widget/shop/shop.dart';
+import 'inventory/inventory.dart';
 import 'shake/shake.dart';
 import 'reward/reward.dart';
 import 'misc/misc.dart';
@@ -17,8 +20,9 @@ class _MainNavigatorState extends State<MainNavigator> {
   //     TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
   static const List<Widget> _navigationOptions = <Widget>[
-    Shake(),
-    Reward(),
+    Home(),
+    Shop(),
+    Inventory(),
     Misc(),
   ];
 
@@ -34,11 +38,13 @@ class _MainNavigatorState extends State<MainNavigator> {
       body: Center(
         child: _navigationOptions.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar( 
+        type: BottomNavigationBarType.fixed,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.vibration), label: "Shake"),
-          BottomNavigationBarItem(icon: Icon(Icons.redeem), label: "Rewards"),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "More")
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.shop), label: "Shop"),
+          BottomNavigationBarItem(icon: Icon(Icons.inventory), label: "Inventory"),
+          BottomNavigationBarItem(icon: Icon(Icons.more_horiz), label: "More"),
         ],
         currentIndex: _selectedIndex,
         // selectedItemColor: Colors.amber[800],
