@@ -10,8 +10,11 @@ class InventoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final vh = MediaQuery.of(context).size.height / 100;
+    final vw = MediaQuery.of(context).size.width / 100;
+
     return Container(
-      height: 100,
+      height: vh * 13,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -21,7 +24,7 @@ class InventoryItem extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Image(
-                width: 150,
+                width: vw * 30,
                 fit: BoxFit.cover,
                 image: NetworkImage(
                   item.imageUrl,
@@ -31,7 +34,7 @@ class InventoryItem extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              padding: const EdgeInsets.fromLTRB(10, 5, 10, 0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,12 +47,11 @@ class InventoryItem extends StatelessWidget {
                     item.partner.name,
                     style: Theme.of(context).textTheme.titleSmall,
                   ),
-                  Divider(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Expire: ${item.getExpireDate()}',
+                        'Expires on: ${item.getExpireDate()}',
                         style: Theme.of(context).textTheme.caption,
                       ),
                       OutlinedButton(
@@ -57,7 +59,8 @@ class InventoryItem extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => InventoryItemDetail()),
+                                builder: (context) =>
+                                    InventoryItemDetail(item: item)),
                           );
                         },
                         child: Text("Detail"),

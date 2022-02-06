@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:shake_and_eat/model/item.dart';
 
-class InventoryItemDetail extends StatefulWidget {
-  const InventoryItemDetail({Key? key}) : super(key: key);
+class InventoryItemDetail extends StatelessWidget {
+  const InventoryItemDetail({Key? key, required this.item}) : super(key: key);
 
-  @override
-  _InventoryItemDetailState createState() => _InventoryItemDetailState();
-}
+  final Item item;
 
-class _InventoryItemDetailState extends State<InventoryItemDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +19,11 @@ class _InventoryItemDetailState extends State<InventoryItemDetail> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Expire on: 2022/01/01',
+            'Starts on: 2022/01/01',
+            style: Theme.of(context).textTheme.bodyText2,
+          ),
+          Text(
+            'Expire: 2022/01/01',
             style: Theme.of(context).textTheme.bodyText2,
           ),
           Text(

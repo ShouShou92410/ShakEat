@@ -29,6 +29,7 @@ class _ShopItemState extends State<ShopItem> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child: Image(
+                      width: 150,
                       fit: BoxFit.cover,
                       image: NetworkImage(
                         "https://images.unsplash.com/photo-1600289031464-74d374b64991?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1075&q=80",
