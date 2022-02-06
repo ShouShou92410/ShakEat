@@ -14,10 +14,17 @@ class Item {
       [this.endDate]);
 
   String getStartDate() {
-    return startDate.toIso8601String().split('T')[0];
+    return startDate
+        .toIso8601String()
+        .split('T')[0]
+        .replaceAll(RegExp(r'-'), '/');
   }
 
   String getExpireDate() {
-    return endDate?.toIso8601String().split('T')[0] ?? "NEVER";
+    return endDate
+            ?.toIso8601String()
+            .split('T')[0]
+            .replaceAll(RegExp(r'-'), '/') ??
+        "NEVER";
   }
 }
