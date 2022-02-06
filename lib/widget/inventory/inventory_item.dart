@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:shake_and_eat/model/item.dart';
 
 import 'package:shake_and_eat/widget/inventory/inventory_item_detail.dart';
 
-class InventoryItem extends StatefulWidget {
-  const InventoryItem({Key? key}) : super(key: key);
+class InventoryItem extends StatelessWidget {
+  const InventoryItem({Key? key, required this.item}) : super(key: key);
 
-  @override
-  _InventoryItemState createState() => _InventoryItemState();
-}
+  final Item item;
 
-class _InventoryItemState extends State<InventoryItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,28 +21,37 @@ class _InventoryItemState extends State<InventoryItem> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Image(
+                width: 150,
                 fit: BoxFit.cover,
                 image: NetworkImage(
-                  "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-1040464_11-6d03a3e.jpg",
+                  item.imageUrl,
                 ),
               ),
             ),
           ),
           Expanded(
             child: Container(
-              padding: const EdgeInsets.all(15),
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Item name',
-                    style: Theme.of(context).textTheme.headline6,
+                    item.name,
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  Text(
+                    item.partner.name,
+                    style: Theme.of(context).textTheme.titleSmall,
                   ),
                   Divider(),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      Text(
+                        'Expire: ${item.getExpireDate()}',
+                        style: Theme.of(context).textTheme.caption,
+                      ),
                       OutlinedButton(
                         onPressed: () {
                           Navigator.push(
@@ -53,11 +60,7 @@ class _InventoryItemState extends State<InventoryItem> {
                                 builder: (context) => InventoryItemDetail()),
                           );
                         },
-                        child: Text("Redeem"),
-                      ),
-                      Text(
-                        'Expire on: 2022/01/01',
-                        style: Theme.of(context).textTheme.caption,
+                        child: Text("Detail"),
                       ),
                     ],
                   )

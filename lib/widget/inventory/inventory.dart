@@ -14,24 +14,23 @@ class Inventory extends StatefulWidget {
 class _InventoryState extends State<Inventory> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Consumer<User>(builder: (BuildContext context, user, Widget? child) {
+      return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
           title: const Text("Shake and Eat"),
           centerTitle: true,
           actions: <Widget>[
-            Consumer<User>(
-              builder: (BuildContext context, user, Widget? child) {
-                return TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Points: ${user.points}",
-                  ),
-                );
-              },
+            TextButton(
+              onPressed: () {},
+              child: Text(
+                "Points: ${user.points}",
+              ),
             )
           ],
         ),
-        body: InventoryList());
+        body: InventoryList(inventory: user.inventory),
+      );
+    });
   }
 }
