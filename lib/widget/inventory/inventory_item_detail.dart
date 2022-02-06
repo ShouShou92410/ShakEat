@@ -8,47 +8,62 @@ class InventoryItemDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final vh = MediaQuery.of(context).size.height / 100;
+    final vw = MediaQuery.of(context).size.width / 100;
+
     return Scaffold(
       appBar: AppBar(
-        // backgroundColor: Colors.white.withOpacity(0.5),
-        // shadowColor: Colors.transparent,
-        shadowColor: Colors.black.withOpacity(0.3),
         centerTitle: true,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Starts on: 2022/01/01',
-            style: Theme.of(context).textTheme.bodyText2,
-          ),
-          Text(
-            'Expire: 2022/01/01',
-            style: Theme.of(context).textTheme.bodyText2,
-          ),
-          Text(
-            'Item name',
-            style: Theme.of(context).textTheme.headline6,
-          ),
-          Text(
-            'Location name',
-            style: Theme.of(context).textTheme.bodyText2,
-          ),
-          Text(
-            'Address',
-            style: Theme.of(context).textTheme.caption,
-          ),
-          Text(
-            'Item description',
-            style: Theme.of(context).textTheme.bodyText1,
-          ),
-          FloatingActionButton.extended(
-            label: Text('REDEEM'),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          )
-        ],
+      body: Container(
+        constraints: BoxConstraints.expand(),
+        padding: const EdgeInsets.fromLTRB(10, 5, 10, 0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image(
+                height: vh * 30,
+                width: vw * 100,
+                fit: BoxFit.cover,
+                image: NetworkImage(
+                  item.imageUrl,
+                ),
+              ),
+            ),
+            Text(
+              item.name,
+              style: Theme.of(context).textTheme.headlineLarge,
+            ),
+            Text(
+              item.partner.name,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            Text(
+              item.partner.address,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            Text(
+              item.description,
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+            Text(
+              'Starts on: ${item.getStartDate()}',
+              style: Theme.of(context).textTheme.bodyText2,
+            ),
+            Text(
+              'Expires on: ${item.getExpireDate()}',
+              style: Theme.of(context).textTheme.bodyText2,
+            ),
+            FloatingActionButton.extended(
+              label: Text('REDEEM'),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            )
+          ],
+        ),
       ),
     );
   }
