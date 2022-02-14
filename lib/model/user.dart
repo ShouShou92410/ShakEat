@@ -34,8 +34,8 @@ class User extends ChangeNotifier {
         Partner("PartnerD", "PartnerD location"),
         DateTime.now()),
     Reward(
-        800,
-        "desert loooong name",
+        700000,
+        "This is a long title with desert",
         "desert description",
         "https://images.unsplash.com/photo-1587314168485-3236d6710814?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1078&q=80",
         Partner("PartnerE loooooooooooong name", "PartnerE location"),

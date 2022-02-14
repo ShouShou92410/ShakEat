@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:shake_and_eat/model/reward.dart';
 
 class InventoryRewardDetail extends StatelessWidget {
@@ -53,7 +54,7 @@ class InventoryRewardDetail extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(10, 5, 10, vh * 8),
         scrollDirection: Axis.vertical,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
@@ -79,11 +80,11 @@ class InventoryRewardDetail extends StatelessWidget {
             ),
             Text(
               reward.name,
-              style: Theme.of(context).textTheme.headlineLarge,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
             Text(
               reward.partner.name,
-              style: Theme.of(context).textTheme.titleLarge,
+              style: Theme.of(context).textTheme.titleMedium,
             ),
             Text(
               reward.partner.address,

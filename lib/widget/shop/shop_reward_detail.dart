@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 
+import 'package:shake_and_eat/model/reward.dart';
+
 class ShopRewardDetail extends StatelessWidget {
-  const ShopRewardDetail({Key? key}) : super(key: key);
+  const ShopRewardDetail({Key? key, required this.reward}) : super(key: key);
+
+  final Reward reward;
 
   @override
   Widget build(BuildContext context) {
+    final vh = MediaQuery.of(context).size.height / 100;
+    final vw = MediaQuery.of(context).size.width / 100;
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -14,64 +21,93 @@ class ShopRewardDetail extends StatelessWidget {
         shadowColor: Colors.black.withOpacity(0.3),
         centerTitle: true,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20),
-            ),
-            child: Image(
-              // alignment: Alignment.topCenter,
-              width: double.infinity,
-              height: 200,
-              fit: BoxFit.cover,
-              image: NetworkImage(
-                "https://images.unsplash.com/photo-1600289031464-74d374b64991?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1075&q=80",
-              ),
-            ),
-          ),
-          Row(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Container(
+        height: vh * 5,
+        width: vw * 80,
+        child: ElevatedButton(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Icon(Icons.add_shopping_cart),
               Text(
-                '3000 points',
-                style: Theme.of(context).textTheme.headline5,
-              ),
-              Text(
-                'Points: 5300 points',
-                style: Theme.of(context).textTheme.headline5,
-              ),
+                "PURCHASE",
+              )
             ],
           ),
-          Text(
-            'Expire on: 2022/01/01',
-            style: Theme.of(context).textTheme.bodyText2,
-          ),
-          Text(
-            'Item name',
-            style: Theme.of(context).textTheme.headline6,
-          ),
-          Text(
-            'Location name',
-            style: Theme.of(context).textTheme.bodyText2,
-          ),
-          Text(
-            'Address',
-            style: Theme.of(context).textTheme.caption,
-          ),
-          Text(
-            'Item description',
-            style: Theme.of(context).textTheme.bodyText1,
-          ),
-          FloatingActionButton.extended(
-            icon: Icon(Icons.add_shopping_cart),
-            label: Text('PURCHASE'),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          )
-        ],
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.only(bottom: vh * 8),
+        scrollDirection: Axis.vertical,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            ClipRRect(
+              child: Image(
+                width: double.infinity,
+                height: 200,
+                fit: BoxFit.cover,
+                image: NetworkImage(reward.imageUrl),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.fromLTRB(10, 5, 10, 0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        reward.endDate == null
+                            ? 'Offer starts on ${reward.getStartDate()}'
+                            : 'Available from ${reward.getStartDate()} to ${reward.getEndDate()}',
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Flexible(
+                        flex: 2,
+                        child: Text(
+                          reward.name,
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                      ),
+                      Flexible(
+                        flex: 1,
+                        child: Text(
+                          '${reward.cost}pts',
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Text(
+                    reward.partner.name,
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  Text(
+                    reward.partner.address,
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  SizedBox(height: vh * 2),
+                  Text(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit odio diam, vitae tincidunt tellus euismod vel. Donec ut scelerisque orci. Phasellus laoreet maximus odio, pellentesque commodo ligula pretium sed. Sed sed urna hendrerit, congue nulla ornare, malesuada nunc. Etiam convallis sodales lacinia. Pellentesque scelerisque, metus et lacinia tristique, augue augue auctor sem, id tincidunt ipsum risus sit amet enim. Sed leo justo, sollicitudin non turpis congue, sagittis ultricies orci. Aliquam consequat feugiat tortor, non consectetur nulla hendrerit in. Nulla pellentesque pellentesque dolor ut varius. Mauris mattis placerat ipsum, dignissim vestibulum ligula. Sed quis porttitor augue. Nunc et venenatis tortor. Fusce id est justo. Nunc et enim ut nunc mattis dignissim sit amet ut leo. Donec lobortis mattis massa ac ultrices.",
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

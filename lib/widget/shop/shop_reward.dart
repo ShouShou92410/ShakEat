@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:shake_and_eat/model/reward.dart';
 
 import 'package:shake_and_eat/widget/shop/shop_reward_detail.dart';
@@ -98,7 +99,8 @@ class ShopReward extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ShopRewardDetail()),
+                          builder: (context) =>
+                              ShopRewardDetail(reward: reward)),
                     );
                   },
                 ),
