@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:shake_and_eat/model/item.dart';
+import 'package:shake_and_eat/model/reward.dart';
 
-class InventoryItemDetail extends StatelessWidget {
-  const InventoryItemDetail({Key? key, required this.item}) : super(key: key);
+class InventoryRewardDetail extends StatelessWidget {
+  const InventoryRewardDetail({Key? key, required this.reward})
+      : super(key: key);
 
-  final Item item;
+  final Reward reward;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +62,7 @@ class InventoryItemDetail extends StatelessWidget {
                 width: vw * 100,
                 fit: BoxFit.cover,
                 image: NetworkImage(
-                  item.imageUrl,
+                  reward.imageUrl,
                 ),
               ),
             ),
@@ -69,23 +70,23 @@ class InventoryItemDetail extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  item.endDate == null
-                      ? 'Offer starts on ${item.getStartDate()}'
-                      : 'Available from ${item.getStartDate()} to ${item.getExpireDate()}',
+                  reward.endDate == null
+                      ? 'Offer starts on ${reward.getStartDate()}'
+                      : 'Available from ${reward.getStartDate()} to ${reward.getEndDate()}',
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
               ],
             ),
             Text(
-              item.name,
+              reward.name,
               style: Theme.of(context).textTheme.headlineLarge,
             ),
             Text(
-              item.partner.name,
+              reward.partner.name,
               style: Theme.of(context).textTheme.titleLarge,
             ),
             Text(
-              item.partner.address,
+              reward.partner.address,
               style: Theme.of(context).textTheme.bodySmall,
             ),
             SizedBox(height: vh * 2),

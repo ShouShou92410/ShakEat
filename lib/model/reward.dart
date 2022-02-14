@@ -1,6 +1,6 @@
 import 'package:shake_and_eat/model/partner.dart';
 
-class Item {
+class Reward {
   int cost;
   String name;
   String description;
@@ -9,7 +9,7 @@ class Item {
   DateTime? endDate;
   Partner partner;
 
-  Item(this.cost, this.name, this.description, this.imageUrl, this.partner,
+  Reward(this.cost, this.name, this.description, this.imageUrl, this.partner,
       this.startDate,
       [this.endDate]);
 
@@ -20,7 +20,7 @@ class Item {
         .replaceAll(RegExp(r'-'), '/');
   }
 
-  String getExpireDate() {
+  String getEndDate() {
     return endDate
             ?.toIso8601String()
             .split('T')[0]

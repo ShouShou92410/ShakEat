@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:shake_and_eat/model/item.dart';
+import 'package:shake_and_eat/model/reward.dart';
 
-import 'package:shake_and_eat/widget/inventory/inventory_item_detail.dart';
+import 'package:shake_and_eat/widget/inventory/inventory_reward_detail.dart';
 
-class InventoryItem extends StatelessWidget {
-  const InventoryItem({Key? key, required this.item}) : super(key: key);
+class InventoryReward extends StatelessWidget {
+  const InventoryReward({Key? key, required this.reward}) : super(key: key);
 
-  final Item item;
+  final Reward reward;
 
   @override
   Widget build(BuildContext context) {
     final vh = MediaQuery.of(context).size.height / 100;
-    final vw = MediaQuery.of(context).size.width / 100;
 
     return Container(
       height: vh * 13,
@@ -19,39 +18,49 @@ class InventoryItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Container(
-            padding: const EdgeInsets.all(5),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image(
-                width: vw * 30,
-                fit: BoxFit.cover,
-                image: NetworkImage(
-                  item.imageUrl,
+          Expanded(
+            flex: 1,
+            child: Container(
+              padding: const EdgeInsets.all(5),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(reward.imageUrl),
                 ),
               ),
             ),
           ),
           Expanded(
+            flex: 2,
             child: Container(
               padding: const EdgeInsets.fromLTRB(10, 5, 10, 0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    item.name,
-                    style: Theme.of(context).textTheme.headlineSmall,
-                  ),
-                  Text(
-                    item.partner.name,
-                    style: Theme.of(context).textTheme.titleSmall,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(
+                        reward.name,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      Text(
+                        reward.partner.name,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.titleSmall,
+                      ),
+                    ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Expires on: ${item.getExpireDate()}',
+                        'Expires on: ${reward.getEndDate()}',
                         style: Theme.of(context).textTheme.caption,
                       ),
                       OutlinedButton(
@@ -60,7 +69,7 @@ class InventoryItem extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    InventoryItemDetail(item: item)),
+                                    InventoryRewardDetail(reward: reward)),
                           );
                         },
                         child: Text("Detail"),
