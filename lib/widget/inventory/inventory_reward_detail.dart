@@ -1,12 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:stop_watch_timer/stop_watch_timer.dart';
 
 import 'package:shake_and_eat/model/reward.dart';
 
-class InventoryRewardDetail extends StatelessWidget {
+class InventoryRewardDetail extends StatefulWidget {
   const InventoryRewardDetail({Key? key, required this.reward})
       : super(key: key);
 
   final Reward reward;
+
+  @override
+  State<InventoryRewardDetail> createState() => _InventoryRewardDetailState();
+}
+
+class _InventoryRewardDetailState extends State<InventoryRewardDetail> {
+  final StopWatchTimer _stopWatchTimer = StopWatchTimer(
+    mode: StopWatchMode.countDown,
+    presetMillisecond: StopWatchTimer.getMilliSecFromMinute(20),
+  );
+
+  bool countDown = false;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() async {
+    super.dispose();
+    await _stopWatchTimer.dispose(); // Need to call dispose function.
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,39 +47,60 @@ class InventoryRewardDetail extends StatelessWidget {
         height: vh * 5,
         width: vw * 90,
         child: ElevatedButton(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('REDEEM'),
-              SizedBox(width: vw * 2),
-              Icon(Icons.arrow_forward)
-            ],
-          ),
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (BuildContext context) => AlertDialog(
-                actionsAlignment: MainAxisAlignment.spaceBetween,
-                title: Text('Redeem?'),
-                content: Text('Are you sure?\n'
-                    'You will have 20 minutes'),
-                actions: [
-                  TextButton(
-                    child: Text('Cancel'),
-                    onPressed: () {
-                      Navigator.pop(context, 'Cancel');
-                    },
-                  ),
-                  ElevatedButton(
-                    child: Text('Redeem'),
-                    onPressed: () {
-                      Navigator.pop(context, 'Redeem');
-                    },
-                  ),
-                ],
-              ),
-            );
-          },
+          child: countDown
+              ? StreamBuilder<int>(
+                  stream: _stopWatchTimer.rawTime,
+                  initialData: _stopWatchTimer.rawTime.value,
+                  builder: (context, snap) {
+                    final value = snap.data!;
+                    final displayTime = StopWatchTimer.getDisplayTime(
+                      value,
+                      hours: false,
+                      milliSecond: false,
+                    );
+                    return Text(displayTime);
+                  },
+                )
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('REDEEM'),
+                    SizedBox(width: vw * 2),
+                    Icon(Icons.arrow_forward)
+                  ],
+                ),
+          onPressed: countDown
+              ? null
+              : () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                      actionsAlignment: MainAxisAlignment.spaceBetween,
+                      title: Text('Redeem?'),
+                      content: Text('Are you sure?\n'
+                          'You will have 20 minutes'),
+                      actions: [
+                        TextButton(
+                          child: Text('Cancel'),
+                          onPressed: () {
+                            Navigator.pop(context, 'Cancel');
+                          },
+                        ),
+                        ElevatedButton(
+                          child: Text('Redeem'),
+                          onPressed: () {
+                            Navigator.pop(context, 'Redeem');
+                            setState(() {
+                              countDown = true;
+                              _stopWatchTimer.onExecute
+                                  .add(StopWatchExecute.start);
+                            });
+                          },
+                        ),
+                      ],
+                    ),
+                  );
+                },
         ),
       ),
       body: SingleChildScrollView(
@@ -69,7 +114,7 @@ class InventoryRewardDetail extends StatelessWidget {
                 width: double.infinity,
                 height: vh * 40,
                 fit: BoxFit.cover,
-                image: NetworkImage(reward.imageUrl),
+                image: NetworkImage(widget.reward.imageUrl),
               ),
             ),
             Container(
@@ -78,14 +123,14 @@ class InventoryRewardDetail extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    reward.partner.name,
+                    widget.reward.partner.name,
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
                   Text(
-                    reward.partner.address,
+                    widget.reward.partner.address,
                     style: TextStyle(
                       fontSize: 12,
                       color: Colors.grey.shade700,
@@ -95,7 +140,7 @@ class InventoryRewardDetail extends StatelessWidget {
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Text(
-                      reward.name,
+                      widget.reward.name,
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -105,9 +150,9 @@ class InventoryRewardDetail extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        reward.endDate == null
-                            ? 'Offer starts on ${reward.getStartDate()}'
-                            : 'Available from ${reward.getStartDate()} to ${reward.getEndDate()}',
+                        widget.reward.endDate == null
+                            ? 'Offer starts on ${widget.reward.getStartDate()}'
+                            : 'Available from ${widget.reward.getStartDate()} to ${widget.reward.getEndDate()}',
                         style: TextStyle(
                           fontSize: 12,
                           color: Colors.grey.shade600,
