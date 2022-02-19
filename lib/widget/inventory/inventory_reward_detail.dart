@@ -15,12 +15,13 @@ class InventoryRewardDetail extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
+        backgroundColor: Colors.white,
+        title: Text('Reward details'),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Container(
         height: vh * 5,
-        width: vw * 80,
+        width: vw * 90,
         child: ElevatedButton(
           child: Text('REDEEM'),
           onPressed: () {
@@ -51,7 +52,7 @@ class InventoryRewardDetail extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.fromLTRB(10, 5, 10, vh * 8),
+        padding: EdgeInsets.fromLTRB(vw * 5, vh * 2, vw * 5, vh * 8),
         scrollDirection: Axis.vertical,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

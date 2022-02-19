@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.orange,
+        fontFamily: 'Rubik',
       ),
       home: ChangeNotifierProvider(
         create: (context) => User(),
