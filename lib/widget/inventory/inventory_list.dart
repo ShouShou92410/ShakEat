@@ -14,7 +14,9 @@ class InventoryList extends StatelessWidget {
       itemCount: inventory.length,
       itemBuilder: (BuildContext context, int index) =>
           InventoryReward(reward: inventory[index]),
-      separatorBuilder: (BuildContext context, int index) => const Divider(),
+      separatorBuilder: (BuildContext context, int index) => const Divider(
+        height: 0,
+      ),
     );
   }
 }

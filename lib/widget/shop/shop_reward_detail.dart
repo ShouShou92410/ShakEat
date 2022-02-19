@@ -29,6 +29,7 @@ class ShopRewardDetail extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(Icons.add_shopping_cart),
+              SizedBox(width: vw * 2),
               Text(
                 "PURCHASE",
               )

@@ -29,7 +29,23 @@ class _InventoryState extends State<Inventory> {
             )
           ],
         ),
-        body: InventoryList(inventory: user.inventory),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: EdgeInsets.only(left: 10, top: 20, bottom: 10),
+              child: Text(
+                '${user.inventory.length} Rewards in your inventory',
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+            ),
+            Expanded(
+              child: InventoryList(inventory: user.inventory),
+            ),
+          ],
+        ),
       );
     });
   }
