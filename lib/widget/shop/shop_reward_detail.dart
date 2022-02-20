@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import 'package:shake_and_eat/model/reward.dart';
+import 'package:shake_and_eat/model/Reward.dart';
 
 class ShopRewardDetail extends StatelessWidget {
   const ShopRewardDetail({Key? key, required this.reward}) : super(key: key);

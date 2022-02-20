@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shake_and_eat/model/user.dart';
+import 'package:shake_and_eat/helper.dart';
 import 'widget/main_navigator.dart';
 
 void main() {
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Rubik',
       ),
       home: ChangeNotifierProvider(
-        create: (context) => User(),
+        create: (context) => getUser(),
         child: const MainNavigator(),
       ),
     );

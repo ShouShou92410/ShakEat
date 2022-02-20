@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 
-import 'package:shake_and_eat/model/reward.dart';
+import 'package:shake_and_eat/model/UserReward.dart';
 
 class InventoryRewardDetail extends StatefulWidget {
   const InventoryRewardDetail({Key? key, required this.reward})
       : super(key: key);
 
-  final Reward reward;
+  final UserReward reward;
 
   @override
   State<InventoryRewardDetail> createState() => _InventoryRewardDetailState();
@@ -123,14 +123,14 @@ class _InventoryRewardDetailState extends State<InventoryRewardDetail> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    widget.reward.partner.name,
+                    widget.reward.partnerName,
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
                   Text(
-                    widget.reward.partner.address,
+                    widget.reward.partnerAddress,
                     style: TextStyle(
                       fontSize: 12,
                       color: Colors.grey.shade700,

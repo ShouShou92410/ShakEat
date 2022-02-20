@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'package:shake_and_eat/model/reward.dart';
+import 'package:shake_and_eat/model/UserReward.dart';
 
 import 'package:shake_and_eat/widget/inventory/inventory_reward_detail.dart';
 
 class InventoryReward extends StatelessWidget {
   const InventoryReward({Key? key, required this.reward}) : super(key: key);
 
-  final Reward reward;
+  final UserReward reward;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +51,7 @@ class InventoryReward extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            reward.partner.name,
+                            reward.partnerName,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               fontSize: 14,

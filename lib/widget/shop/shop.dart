@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:shake_and_eat/model/user.dart';
+import 'package:shake_and_eat/model/User.dart';
 import 'package:shake_and_eat/widget/shop/shop_list.dart';
 
 class Shop extends StatefulWidget {
@@ -29,7 +29,7 @@ class _ShopState extends State<Shop> {
             )
           ],
         ),
-        body: ShopList(rewards: user.inventory),
+        // body: ShopList(rewards: user.inventory),
       );
     });
   }

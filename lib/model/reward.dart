@@ -1,5 +1,3 @@
-import 'package:shake_and_eat/model/partner.dart';
-
 class Reward {
   int cost;
   String name;
@@ -7,11 +5,15 @@ class Reward {
   String imageUrl;
   DateTime startDate;
   DateTime? endDate;
-  Partner partner;
 
-  Reward(this.cost, this.name, this.description, this.imageUrl, this.partner,
-      this.startDate,
-      [this.endDate]);
+  Reward(
+    this.cost,
+    this.name,
+    this.description,
+    this.imageUrl,
+    this.startDate, [
+    this.endDate,
+  ]);
 
   String getStartDate() {
     return startDate
