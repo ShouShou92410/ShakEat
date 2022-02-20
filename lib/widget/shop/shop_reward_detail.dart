@@ -68,14 +68,14 @@ class ShopRewardDetail extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            reward.partner.name,
+                            'TODO: partner name',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
                           Text(
-                            reward.partner.address,
+                            'TODO: partner address',
                             style: TextStyle(
                               fontSize: 12,
                               color: Colors.grey.shade700,

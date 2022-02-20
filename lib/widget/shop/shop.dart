@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shake_and_eat/helper.dart';
+import 'package:shake_and_eat/model/Partner.dart';
 
 import 'package:shake_and_eat/model/User.dart';
 import 'package:shake_and_eat/widget/shop/shop_list.dart';
+import 'package:shake_and_eat/widget/shop/shop_partner_preview.dart';
 
 class Shop extends StatefulWidget {
   const Shop({Key? key}) : super(key: key);
@@ -12,6 +15,8 @@ class Shop extends StatefulWidget {
 }
 
 class _ShopState extends State<Shop> {
+  List<Partner> partners = getPartners();
+
   @override
   Widget build(BuildContext context) {
     return Consumer<User>(builder: (BuildContext context, user, Widget? child) {
@@ -28,6 +33,13 @@ class _ShopState extends State<Shop> {
               ),
             )
           ],
+        ),
+        body: ListView.separated(
+          itemCount: partners.length,
+          itemBuilder: (BuildContext context, int index) =>
+              ShopPartnerPreview(partner: partners[index]),
+          separatorBuilder: (BuildContext context, int index) =>
+              const SizedBox(height: 10),
         ),
         // body: ShopList(rewards: user.inventory),
       );
