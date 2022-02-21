@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:shake_and_eat/model/Partner.dart';
 
 import 'package:shake_and_eat/model/Reward.dart';
 
 import 'package:shake_and_eat/widget/shop/shop_reward_detail.dart';
 
 class ShopReward extends StatelessWidget {
-  const ShopReward({Key? key, required this.reward}) : super(key: key);
+  const ShopReward({Key? key, required this.partner, required this.reward})
+      : super(key: key);
 
+  final Partner partner;
   final Reward reward;
 
   @override
@@ -55,13 +58,13 @@ class ShopReward extends StatelessWidget {
                               style: Theme.of(context).textTheme.titleLarge,
                             ),
                             Text(
-                              'TODO: partner name',
+                              '${partner.name}',
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: Theme.of(context).textTheme.titleSmall,
                             ),
                             Text(
-                              'TODO: partner address',
+                              '${partner.address}',
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: Theme.of(context).textTheme.bodySmall,
@@ -99,8 +102,8 @@ class ShopReward extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>
-                              ShopRewardDetail(reward: reward)),
+                          builder: (context) => ShopRewardDetail(
+                              partner: partner, reward: reward)),
                     );
                   },
                 ),

@@ -1,12 +1,14 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:shake_and_eat/model/Partner.dart';
 
 import 'package:shake_and_eat/model/Reward.dart';
 
 class ShopRewardDetail extends StatelessWidget {
-  const ShopRewardDetail({Key? key, required this.reward}) : super(key: key);
+  const ShopRewardDetail(
+      {Key? key, required this.partner, required this.reward})
+      : super(key: key);
 
+  final Partner partner;
   final Reward reward;
 
   @override
@@ -68,14 +70,14 @@ class ShopRewardDetail extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'TODO: partner name',
+                            '${partner.name}',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
                           Text(
-                            'TODO: partner address',
+                            '${partner.address}',
                             style: TextStyle(
                               fontSize: 12,
                               color: Colors.grey.shade700,
