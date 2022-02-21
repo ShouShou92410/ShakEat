@@ -35,11 +35,12 @@ class _ShopState extends State<Shop> {
           ],
         ),
         body: ListView.separated(
-          itemCount: partners.length,
-          itemBuilder: (BuildContext context, int index) =>
-              ShopPartnerPreview(partner: partners[index]),
+          itemCount: partners.length + 1,
+          itemBuilder: (BuildContext context, int index) => index == 0
+              ? Text('TODO: Section')
+              : ShopPartnerPreview(partner: partners[index - 1]),
           separatorBuilder: (BuildContext context, int index) =>
-              const SizedBox(height: 10),
+              const SizedBox(height: 30),
         ),
         // body: ShopList(rewards: user.inventory),
       );

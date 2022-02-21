@@ -68,7 +68,7 @@ List<Partner> getPartners() {
   pD.offers.add(r4);
   pE.offers.add(r5);
 
-  List<Partner> partners = [pA, pB, pC, pD, pE];
+  List<Partner> partners = [pA, pB, pE, pC, pD];
 
   return partners;
 }

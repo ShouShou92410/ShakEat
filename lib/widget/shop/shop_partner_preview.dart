@@ -11,8 +11,11 @@ class ShopPartnerPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final vh = MediaQuery.of(context).size.height / 100;
+    final vw = MediaQuery.of(context).size.width / 100;
+
     return Container(
-      height: 200,
+      margin: EdgeInsets.symmetric(horizontal: 5),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -20,12 +23,35 @@ class ShopPartnerPreview extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(partner.name),
-              Text('View all'),
+              Expanded(
+                child: Text(
+                  partner.name,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+              SizedBox(width: 10),
+              InkWell(
+                onTap: () {},
+                child: Text(
+                  'View all',
+                  textAlign: TextAlign.end,
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.blue,
+                  ),
+                ),
+              ),
             ],
           ),
-          Expanded(
+          SizedBox(height: vh * 2),
+          Container(
+            height: vh * 25,
             child: ListView.separated(
+              shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: min(3, partner.offers.length),
               itemBuilder: (BuildContext context, int index) =>
@@ -47,19 +73,35 @@ class RewardPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: Image(
-            height: 150,
-            width: 150,
-            fit: BoxFit.cover,
-            image: NetworkImage(reward.imageUrl),
+    final vh = MediaQuery.of(context).size.height / 100;
+    final vw = MediaQuery.of(context).size.width / 100;
+
+    return Container(
+      width: vw * 35,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AspectRatio(
+            aspectRatio: 1,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image(
+                fit: BoxFit.cover,
+                image: NetworkImage(reward.imageUrl),
+              ),
+            ),
           ),
-        ),
-        Text(reward.name),
-      ],
+          SizedBox(height: vh * 1),
+          Text(
+            reward.name,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontSize: 20,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
