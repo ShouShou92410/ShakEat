@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:shake_and_eat/model/User.dart';
+import 'package:ShakEat/model/User.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

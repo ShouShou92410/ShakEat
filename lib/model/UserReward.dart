@@ -1,4 +1,4 @@
-import 'package:shake_and_eat/model/Reward.dart';
+import 'package:ShakEat/model/Reward.dart';
 
 class UserReward extends Reward {
   String partnerName;

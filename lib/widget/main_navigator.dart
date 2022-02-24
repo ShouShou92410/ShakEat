@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shake_and_eat/widget/home/home.dart';
-import 'package:shake_and_eat/widget/shop/shop.dart';
+import 'package:ShakEat/widget/home/home.dart';
+import 'package:ShakEat/widget/shop/shop.dart';
 import 'inventory/inventory.dart';
 import 'misc/misc.dart';
 

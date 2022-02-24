@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shake_and_eat/model/Partner.dart';
+import 'package:ShakEat/model/Partner.dart';
 
-import 'package:shake_and_eat/model/Reward.dart';
+import 'package:ShakEat/model/Reward.dart';
 
-import 'package:shake_and_eat/widget/shop/shop_reward_detail.dart';
+import 'package:ShakEat/widget/shop/shop_reward_detail.dart';
 
 class ShopReward extends StatelessWidget {
   const ShopReward({Key? key, required this.partner, required this.reward})

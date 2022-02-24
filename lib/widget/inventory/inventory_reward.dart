@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:shake_and_eat/model/UserReward.dart';
+import 'package:ShakEat/model/UserReward.dart';
 
-import 'package:shake_and_eat/widget/inventory/inventory_reward_detail.dart';
+import 'package:ShakEat/widget/inventory/inventory_reward_detail.dart';
 
 class InventoryReward extends StatelessWidget {
   const InventoryReward({Key? key, required this.reward}) : super(key: key);

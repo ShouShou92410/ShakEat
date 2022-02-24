@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shake_and_eat/helper.dart';
-import 'package:shake_and_eat/model/Partner.dart';
+import 'package:ShakEat/helper.dart';
+import 'package:ShakEat/model/Partner.dart';
 
-import 'package:shake_and_eat/model/User.dart';
-import 'package:shake_and_eat/widget/shop/shop_list.dart';
-import 'package:shake_and_eat/widget/shop/shop_partner_preview.dart';
+import 'package:ShakEat/model/User.dart';
+import 'package:ShakEat/widget/shop/shop_list.dart';
+import 'package:ShakEat/widget/shop/shop_partner_preview.dart';
 
 class Shop extends StatefulWidget {
   const Shop({Key? key}) : super(key: key);

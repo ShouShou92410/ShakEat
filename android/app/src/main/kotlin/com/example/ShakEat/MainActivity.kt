@@ -1,4 +1,4 @@
-package com.example.shake_and_eat
+package com.example.ShakEat
 
 import io.flutter.embedding.android.FlutterActivity
 

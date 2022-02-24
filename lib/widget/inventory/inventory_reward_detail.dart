@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 
-import 'package:shake_and_eat/model/UserReward.dart';
+import 'package:ShakEat/model/UserReward.dart';
 
 class InventoryRewardDetail extends StatefulWidget {
   const InventoryRewardDetail({Key? key, required this.reward})
