@@ -7,9 +7,12 @@ import 'package:ShakEat/widget/shop/shop_list.dart';
 import 'package:ShakEat/widget/shop/shop_reward_detail.dart';
 
 class ShopPartnerPreview extends StatelessWidget {
-  const ShopPartnerPreview({Key? key, required this.partner}) : super(key: key);
+  const ShopPartnerPreview(
+      {Key? key, required this.partner, required this.viewAll})
+      : super(key: key);
 
   final Partner partner;
+  final ValueSetter<Partner> viewAll;
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +43,7 @@ class ShopPartnerPreview extends StatelessWidget {
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 hoverColor: Colors.transparent,
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => ShopList(partner: partner)),
-                  );
-                },
+                onTap: () => viewAll(partner),
                 child: Text(
                   'View all',
                   textAlign: TextAlign.end,
@@ -92,12 +89,11 @@ class RewardPreview extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          width: vw * 25,
+          width: vw * 30,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              AspectRatio(
-                aspectRatio: 1,
+              Expanded(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Image(
@@ -109,8 +105,8 @@ class RewardPreview extends StatelessWidget {
               SizedBox(height: vh * 1),
               Text(
                 reward.name,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
+                // maxLines: 2,
+                // overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
